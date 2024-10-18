@@ -1,0 +1,29 @@
+name: daily_calorie_calculator_flutter
+description: Flutter application that allows the user to calculate the recommended daily amount of calories to gain or lose weight, based on their physical profile
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  mobx: ^2.3.3+2
+  flutter_mobx: ^2.2.1+1
+  flutter_modular: ^6.3.3
+  hive: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.9
+  mobx_codegen: ^2.6.1
+
+flutter:
+  generate: true
+  uses-material-design: true
