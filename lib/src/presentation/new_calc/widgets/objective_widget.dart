@@ -1,15 +1,15 @@
-import 'package:daily_calorie_calculator_flutter/src/shared/enums/gender_enum.dart';
 import 'package:flutter/material.dart';
 
+import '../../../shared/enums/objective_enum.dart';
 import '../../../shared/widgets/custom_outlined_button.dart';
 
-class GenderSelectionWidget extends StatelessWidget {
-  const GenderSelectionWidget({
+class ObjectiveWidget extends StatelessWidget {
+  const ObjectiveWidget({
     super.key,
-    required this.genderSelected,
+    required this.objectiveSelected,
   });
 
-  final GenderEnum genderSelected;
+  final ObjectiveEnum objectiveSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class GenderSelectionWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "Informe seu gênero:",
+              "Informe seu objetivo com atividade fisica:",
               style: textTheme.titleMedium,
             ),
           ],
@@ -32,20 +32,14 @@ class GenderSelectionWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomOutlinedButton(
+                isSelected: objectiveSelected == ObjectiveEnum.GAIN,
                 onPressed: () {},
-                isSelected: genderSelected == GenderEnum.MALE,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.male,
-                      color: genderSelected == GenderEnum.MALE
-                          ? Colors.white
-                          : null,
-                    ),
                     Text(
-                      GenderEnum.MALE.toString(),
-                      style: genderSelected == GenderEnum.MALE
+                      ObjectiveEnum.GAIN.toString(),
+                      style: objectiveSelected == ObjectiveEnum.GAIN
                           ? const TextStyle(color: Colors.white)
                           : null,
                     ),
@@ -53,20 +47,14 @@ class GenderSelectionWidget extends StatelessWidget {
                 ),
               ),
               CustomOutlinedButton(
+                isSelected: objectiveSelected == ObjectiveEnum.LOSS,
                 onPressed: () {},
-                isSelected: genderSelected == GenderEnum.FEMALE,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.female,
-                      color: genderSelected == GenderEnum.FEMALE
-                          ? Colors.white
-                          : null,
-                    ),
                     Text(
-                      GenderEnum.FEMALE.toString(),
-                      style: genderSelected == GenderEnum.FEMALE
+                      ObjectiveEnum.LOSS.toString(),
+                      style: objectiveSelected == ObjectiveEnum.LOSS
                           ? const TextStyle(color: Colors.white)
                           : null,
                     ),

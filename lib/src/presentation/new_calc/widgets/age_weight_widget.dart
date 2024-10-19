@@ -15,7 +15,7 @@ class _AgeAndWeightWidgetState extends State<AgeAndWeightWidget> {
         CardCounterWidget(
           title: "Idade",
           subtitle: "Informe sua idade atual",
-          counter: 10,
+          counter: 20,
           icon: Icons.calendar_month,
           decrementFunc: () {},
           incrementFunc: () {},
@@ -24,7 +24,7 @@ class _AgeAndWeightWidgetState extends State<AgeAndWeightWidget> {
           title: "Peso",
           subtitle: "Informe seu peso em KG atual",
           isWeightCard: true,
-          counter: 10,
+          counter: 60,
           icon: Icons.fitness_center,
           decrementFunc: () {},
           incrementFunc: () {},
@@ -71,7 +71,9 @@ class CardCounterWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  counter.toString(),
+                  isWeightCard
+                      ? "${counter.toString()} Kg"
+                      : counter.toString(),
                   style: textTheme.titleLarge,
                 ),
               ],

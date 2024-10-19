@@ -11,9 +11,20 @@ class MainModule extends Module {
 
   @override
   void routes(r) {
-    r.child('/', child: (context) => const HomePage());
+    r.child(
+      '/',
+      child: (context) => const HomePage(),
+      transition: TransitionType.leftToRight,
+    );
     r.child('/historic', child: (context) => const HistoricPage());
-    r.child('/new-calc', child: (context) => const NewCalcPage());
-    r.child('/calc-details', child: (context) => const CalcDetailsPage());
+    r.child(
+      '/new-calc',
+      child: (context) => const NewCalcPage(),
+      transition: TransitionType.leftToRight,
+    );
+    r.child(
+      '/calc-details',
+      child: (context) => const CalcDetailsPage(),
+    );
   }
 }

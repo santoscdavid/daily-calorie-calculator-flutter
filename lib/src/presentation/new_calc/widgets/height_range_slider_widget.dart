@@ -22,7 +22,7 @@ class _HeightRangeSliderWidgetState extends State<HeightRangeSliderWidget> {
           children: [
             Text(
               'Informe sua altura:',
-              style: textTheme.titleLarge,
+              style: textTheme.titleMedium,
             ),
           ],
         ),

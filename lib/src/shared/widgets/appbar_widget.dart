@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
-class DefaultAppbarWidget extends StatefulWidget implements PreferredSizeWidget {
+class DefaultAppbarWidget extends StatefulWidget
+    implements PreferredSizeWidget {
   const DefaultAppbarWidget({
     super.key,
-    this.actions,
+    this.hasReturn = false,
+    this.onPressedReturn,
   });
 
-  final List<Widget>? actions;
+  final bool hasReturn;
+  final Function()? onPressedReturn;
 
   @override
   State<DefaultAppbarWidget> createState() => _DefaultAppbarWidgetState();
@@ -18,6 +21,7 @@ class DefaultAppbarWidget extends StatefulWidget implements PreferredSizeWidget 
 class _DefaultAppbarWidgetState extends State<DefaultAppbarWidget> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final textTheme = Theme.of(context).textTheme;
 
     return AppBar(
@@ -33,7 +37,28 @@ class _DefaultAppbarWidgetState extends State<DefaultAppbarWidget> {
           ),
         ],
       ),
-      elevation: 10,
+      leading: Builder(builder: (context) {
+        return ElevatedButton(
+          onPressed: widget.hasReturn
+              ? widget.onPressedReturn
+              : () => Scaffold.of(context).openDrawer(),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: theme.primaryColor,
+            padding: EdgeInsets.only(left: widget.hasReturn ? 9 : 0),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(15),
+                bottomRight: Radius.circular(15),
+              ),
+            ),
+            elevation: 0,
+          ),
+          child: Icon(
+            widget.hasReturn ? Icons.arrow_back_ios : Icons.menu,
+            color: Colors.white,
+          ),
+        );
+      }),
     );
   }
 }
