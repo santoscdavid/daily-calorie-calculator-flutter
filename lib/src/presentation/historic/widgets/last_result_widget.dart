@@ -22,6 +22,12 @@ class _LastResultWidgetState extends State<LastResultWidget> {
   }
 
   @override
+  void dispose() {
+    Modular.dispose<HistoricController>();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
@@ -92,6 +98,7 @@ class _LastResultWidgetState extends State<LastResultWidget> {
                 ? ElevatedButton(
                     onPressed: () {
                       _controller.saveResultInHistoric(null);
+                      _controller.getLastResult();
                     },
                     child: const Row(
                       mainAxisSize: MainAxisSize.min,

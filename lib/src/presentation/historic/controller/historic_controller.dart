@@ -18,9 +18,7 @@ abstract class HistoricControllerBase with Store {
   Future<void> getLastResult() async {
     final data = await _historicService.getHistoric();
 
-    if (data != null) {
-      lastResult = data;
-    }
+    lastResult = data;
   }
 
   Future<void> saveResultInHistoric(ResultModel? resultModel) async {
