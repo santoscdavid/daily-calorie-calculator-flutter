@@ -23,7 +23,7 @@ import 'src/presentation/new_calc/controller/new_calc_controller.dart';
 import 'src/presentation/new_calc/new_calc_page.dart';
 
 class MainModule extends Module {
-  // Injeção de depedências do aplicativo
+  // Application dependency injection
   @override
   void binds(i) {
     i.add<HttpService>(
@@ -55,7 +55,7 @@ class MainModule extends Module {
     );
   }
 
-  // Rotas do aplicativo
+  // App routes
   @override
   void routes(r) {
     r.child(

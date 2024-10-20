@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../domain/models/articles_model.dart';
 
+///
+/// Opens the button sheet that shows the articles
+///
 void showFullScreenBottomSheet(
   BuildContext context,
   ArticlesModel articlesModel,

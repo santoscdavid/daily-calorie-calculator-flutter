@@ -7,6 +7,10 @@ import 'src/core/database/hive_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // initializes the Hive database
   await HiveConfig.init();
+
+  // Passes responsibility for routing and instancing to Modular
   runApp(ModularApp(module: MainModule(), child: const MainWidget()));
 }

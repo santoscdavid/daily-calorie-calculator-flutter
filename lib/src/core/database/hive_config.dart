@@ -26,7 +26,7 @@ class HiveConfig {
   }
 }
 
-// EWnum to map existing Hive boxes
+// Enum to map existing Hive boxes
 enum HiveBoxes {
   historicBox('historic_box');
 
