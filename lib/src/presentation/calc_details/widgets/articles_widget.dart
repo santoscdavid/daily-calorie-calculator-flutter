@@ -93,12 +93,23 @@ class ArticleCard extends StatelessWidget {
       child: ListTile(
         leading: const Icon(Icons.web),
         title: Text(articlesModel.title),
-        subtitle: Row(
-          children: articlesModel.tags
-              .map(
-                (e) => Chip(label: Text(e)),
-              )
-              .toList(),
+        subtitle: Column(
+          children: [
+            Row(
+              children: articlesModel.tags
+                  .map(
+                    (e) => Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 1.0),
+                        child: Chip(
+                          label: Text(e),
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ],
         ),
         onTap: () => showFullScreenBottomSheet(context, articlesModel),
       ),

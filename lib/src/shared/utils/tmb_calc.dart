@@ -1,6 +1,9 @@
 import '../../domain/models/calc_model.dart';
 import '../../domain/enums/gender_enum.dart';
 
+///
+/// Calculates the basal metabolic rate
+///
 double tmbCalc(CalcModel model) {
   switch (model.gender) {
     case GenderEnum.MALE:

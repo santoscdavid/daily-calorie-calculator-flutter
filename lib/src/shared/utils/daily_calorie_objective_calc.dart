@@ -2,6 +2,9 @@ import 'package:daily_calorie_calculator_flutter/src/domain/enums/objective_enum
 
 import '../../domain/models/calc_model.dart';
 
+///
+/// Calculation to inform the recommended daily calorie intake based on the objective
+///
 double dailyCalorieObjectiveCalc({
   required CalcModel model,
   required double calories,

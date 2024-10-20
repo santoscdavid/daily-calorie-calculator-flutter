@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../domain/models/articles_model.dart';
 
+///
+/// Opens the button sheet that shows the articles
+///
 void showFullScreenBottomSheet(
   BuildContext context,
   ArticlesModel articlesModel,
@@ -17,30 +20,8 @@ void showFullScreenBottomSheet(
             controller: scrollController,
             child: Container(
               padding: const EdgeInsets.all(16.0),
-              height: MediaQuery.of(context).size.height,
               child: Column(
                 children: [
-                  // SizedBox(
-                  //   width: 200,
-                  //   child: Image.network(
-                  //     articlesModel.imageUrl,
-                  //     loadingBuilder: (BuildContext context, Widget child,
-                  //         ImageChunkEvent? loadingProgress) {
-                  //       if (loadingProgress == null) {
-                  //         return child;
-                  //       } else {
-                  //         return Center(
-                  //           child: CircularProgressIndicator(
-                  //             value: loadingProgress.expectedTotalBytes != null
-                  //                 ? loadingProgress.cumulativeBytesLoaded /
-                  //                     (loadingProgress.expectedTotalBytes ?? 1)
-                  //                 : null,
-                  //           ),
-                  //         );
-                  //       }
-                  //     },
-                  //   ),
-                  // ),
                   Text(
                     articlesModel.title,
                     style: const TextStyle(fontSize: 24),

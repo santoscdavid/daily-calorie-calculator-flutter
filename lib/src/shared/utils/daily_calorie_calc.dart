@@ -2,6 +2,9 @@ import 'package:daily_calorie_calculator_flutter/src/domain/enums/level_activity
 
 import '../../domain/models/calc_model.dart';
 
+///
+/// Calculation to inform the amount of daily calories based on the activity level
+///
 double dailyCalorieCalc({
   required CalcModel model,
   required double tbm,

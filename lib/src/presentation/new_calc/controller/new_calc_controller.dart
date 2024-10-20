@@ -12,12 +12,15 @@ import '../../../domain/enums/objective_enum.dart';
 import '../../../shared/utils/tmb_calc.dart';
 import '../../../shared/utils/daily_calorie_calc.dart';
 import '../../../shared/utils/daily_calorie_objective_calc.dart';
+import '../../historic/controller/historic_controller.dart';
 
 part 'new_calc_controller.g.dart';
 
 class NewCalcController = NewCalcControllerBase with _$NewCalcController;
 
 abstract class NewCalcControllerBase with Store {
+  final _historicController = Modular.get<HistoricController>();
+
   @observable
   CalcModel calcModel = CalcModel(
     age: 20,
@@ -89,6 +92,8 @@ abstract class NewCalcControllerBase with Store {
       dailyCalories: dailyCalories,
       dailyCaloriesObjective: dailyCaloriesObjective,
     );
+
+    _historicController.saveResultInHistoric(result);
 
     Modular.to.navigate('calc-details', arguments: result);
   }
