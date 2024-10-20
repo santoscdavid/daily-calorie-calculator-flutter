@@ -1,5 +1,6 @@
 import 'package:result_dart/result_dart.dart';
 
+import '../../domain/enums/objective_enum.dart';
 import '../../domain/models/get_articles_model.dart';
 import '../../domain/repositories/articles_repository.dart';
 import '../datasources/articles_datasource.dart';
@@ -17,8 +18,10 @@ class ArticlesRepositoryImp extends ArticlesRepository {
   final Mapper<GetArticlesModel, GetArticlesDto> mapper;
 
   @override
-  AsyncResult<GetArticlesModel, HttpRequestException> getArticles() {
-    final result = datasource.getArticles();
+  AsyncResult<GetArticlesModel, HttpRequestException> getArticles(
+    ObjectiveEnum objective,
+  ) {
+    final result = datasource.getArticles(objective);
 
     return result.fold(
       (success) => Success(mapper.toModel(success)),

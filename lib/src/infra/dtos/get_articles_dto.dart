@@ -27,4 +27,12 @@ class GetArticlesDto {
 
   factory GetArticlesDto.fromJson(String source) =>
       GetArticlesDto.fromMap(json.decode(source));
+
+  copyWith({
+    List<ArticlesDto>? articles,
+  }) {
+    return GetArticlesDto(
+      articles: articles ?? [],
+    );
+  }
 }

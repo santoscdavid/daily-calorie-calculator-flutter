@@ -4,18 +4,30 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../domain/models/result_model.dart';
 import '../../shared/widgets/appbar_widget.dart';
 import '../../shared/widgets/scaffold_widget.dart';
+import 'controller/calc_details_controller.dart';
 import 'widgets/articles_widget.dart';
 import 'widgets/daily_calories_objective_widget.dart';
 import 'widgets/daily_calories_widget.dart';
 import 'widgets/tmb_widget.dart';
 
-class CalcDetailsPage extends StatelessWidget {
+class CalcDetailsPage extends StatefulWidget {
   const CalcDetailsPage({
     super.key,
     required this.resultModel,
   });
 
   final ResultModel resultModel;
+
+  @override
+  State<CalcDetailsPage> createState() => _CalcDetailsPageState();
+}
+
+class _CalcDetailsPageState extends State<CalcDetailsPage> {
+  @override
+  void dispose() {
+    Modular.dispose<CalcDetailsController>();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,23 +50,25 @@ class CalcDetailsPage extends StatelessWidget {
                 style: textTheme.titleLarge,
               ),
               TmbWidget(
-                tbmValue: resultModel.tbmValue.toString(),
+                tbmValue: widget.resultModel.tbmValue.toString(),
               ),
               const SizedBox(height: 10),
               DailyCaloriesWidget(
-                dailyCalories: resultModel.dailyCalories.toString(),
+                dailyCalories: widget.resultModel.dailyCalories.toString(),
               ),
               const SizedBox(height: 10),
               DailyCaloriesObjectiveWidget(
                 dailyCaloriesObjective:
-                    resultModel.dailyCaloriesObjective.toString(),
+                    widget.resultModel.dailyCaloriesObjective.toString(),
               ),
               const SizedBox(height: 10),
               const Divider(
                 color: Colors.black,
               ),
               const SizedBox(height: 10),
-              const ArticlesWidget(),
+              ArticlesWidget(
+                calcModel: widget.resultModel.calcModel,
+              ),
             ],
           ),
         ),

@@ -61,8 +61,8 @@ mixin _$CalcDetailsController on CalcDetailsControllerBase, Store {
       AsyncAction('CalcDetailsControllerBase.getArticles', context: context);
 
   @override
-  Future<void> getArticles() {
-    return _$getArticlesAsyncAction.run(() => super.getArticles());
+  Future<void> getArticles(ObjectiveEnum objective) {
+    return _$getArticlesAsyncAction.run(() => super.getArticles(objective));
   }
 
   @override
