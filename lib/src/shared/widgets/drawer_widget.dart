@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class DefaultDrawerWidget extends StatelessWidget {
   const DefaultDrawerWidget({super.key});
@@ -7,6 +8,7 @@ class DefaultDrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = Theme.of(context).textTheme;
+    final routerActive = Modular.routerDelegate.path;
 
     return Drawer(
       backgroundColor: theme.appBarTheme.foregroundColor,
@@ -36,22 +38,19 @@ class DefaultDrawerWidget extends StatelessWidget {
               ],
             ),
           ),
-          const Column(
+          Column(
             children: [
               DrawerItemWidget(
                 title: "Início",
                 icon: Icons.home,
-                isActive: false,
-              ),
-              DrawerItemWidget(
-                title: "Gráficos",
-                icon: Icons.bar_chart,
-                isActive: false,
+                isActive: routerActive == '/',
+                onTap: () => Modular.to.navigate('/'),
               ),
               DrawerItemWidget(
                 title: "Histórico",
                 icon: Icons.history,
-                isActive: true,
+                isActive: routerActive == '/historic',
+                onTap: () => Modular.to.navigate('/historic'),
               ),
             ],
           )
@@ -108,7 +107,6 @@ class DrawerItemWidget extends StatelessWidget {
                   textAlign: TextAlign.left,
                   style: textTheme.titleLarge!.copyWith(
                     color: isActive ? Colors.white : Colors.black,
-                    fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
                   ),
                 ),
               ),

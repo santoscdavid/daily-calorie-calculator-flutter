@@ -1,6 +1,6 @@
-import '../../shared/enums/gender_enum.dart';
-import '../../shared/enums/level_activity_enum.dart';
-import '../../shared/enums/objective_enum.dart';
+import '../enums/gender_enum.dart';
+import '../enums/level_activity_enum.dart';
+import '../enums/objective_enum.dart';
 import '../models/calc_model.dart';
 
 extension CalcModelExtension on CalcModel {
