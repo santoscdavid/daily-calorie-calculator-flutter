@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import '../controller/new_calc_controller.dart';
 
 class AgeAndWeightWidget extends StatefulWidget {
   const AgeAndWeightWidget({super.key});
@@ -8,29 +12,33 @@ class AgeAndWeightWidget extends StatefulWidget {
 }
 
 class _AgeAndWeightWidgetState extends State<AgeAndWeightWidget> {
+  final newCalcController = Modular.get<NewCalcController>();
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CardCounterWidget(
-          title: "Idade",
-          subtitle: "Informe sua idade atual",
-          counter: 20,
-          icon: Icons.calendar_month,
-          decrementFunc: () {},
-          incrementFunc: () {},
-        ),
-        CardCounterWidget(
-          title: "Peso",
-          subtitle: "Informe seu peso em KG atual",
-          isWeightCard: true,
-          counter: 60,
-          icon: Icons.fitness_center,
-          decrementFunc: () {},
-          incrementFunc: () {},
-        ),
-      ],
-    );
+    return Observer(builder: (context) {
+      return Row(
+        children: [
+          CardCounterWidget(
+            title: "Idade",
+            subtitle: "Informe sua idade atual",
+            counter: newCalcController.calcModel.age,
+            icon: Icons.calendar_month,
+            decrementFunc: () => newCalcController.decrementAge(),
+            incrementFunc: () => newCalcController.incrementAge(),
+          ),
+          CardCounterWidget(
+            title: "Peso",
+            subtitle: "Informe seu peso em KG atual",
+            isWeightCard: true,
+            counter: newCalcController.calcModel.weight,
+            icon: Icons.fitness_center,
+            decrementFunc: () => newCalcController.decrementWeight(),
+            incrementFunc: () => newCalcController.incrementWeight(),
+          ),
+        ],
+      );
+    });
   }
 }
 

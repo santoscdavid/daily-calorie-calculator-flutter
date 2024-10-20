@@ -4,7 +4,6 @@ import '../../shared/widgets/appbar_widget.dart';
 import '../../shared/widgets/drawer_widget.dart';
 import '../../shared/widgets/scaffold_widget.dart';
 import 'widgets/last_result_widget.dart';
-import 'widgets/last_results_chart_widget.dart';
 import 'widgets/new_calc_floating_button_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,7 +19,6 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            LastResultsChartWidget(),
             LastResultWidget(),
           ],
         ),

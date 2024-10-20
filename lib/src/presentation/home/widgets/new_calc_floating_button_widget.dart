@@ -8,14 +8,11 @@ class NewCalcFloatingButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: FloatingActionButton.extended(
-        backgroundColor: theme.primaryColor,
-        onPressed: () => Modular.to.navigate('/new-calc'),
-        icon: const Icon(Icons.add),
-        label: const Text("Novo teste"),
-      ),
+    return FloatingActionButton.extended(
+      backgroundColor: theme.primaryColor,
+      onPressed: () => Modular.to.navigate('/new-calc'),
+      icon: const Icon(Icons.add),
+      label: const Text("Novo teste"),
     );
   }
 }
