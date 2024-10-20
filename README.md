@@ -2,15 +2,12 @@
 
 Flutter application that allows the user to calculate the recommended daily amount of calories to gain or lose weight, based on their physical profile
 
-## Getting Started
+Flutter version: 3.13.0
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Usuario deve preencher os dados e logo após clicar em "Calcular"
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![home](/assets/doc/image/Screenshot_1729437937.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Logo apos ele será redirecionado para tela de resultados que contem os artigos relacionados com o objetivo
+![result](/assets/doc/image/Screenshot_1729438227.png)
