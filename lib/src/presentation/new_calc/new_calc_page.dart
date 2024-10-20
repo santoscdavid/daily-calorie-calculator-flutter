@@ -61,21 +61,24 @@ class _NewCalcPageState extends State<NewCalcPage> {
                   const SizedBox(height: 20),
                   const ObjectiveWidget(),
                   const SizedBox(height: 20),
-                  SizedBox(
-                    height: 40,
-                    width: MediaQuery.of(context).size.width / 2,
-                    child: Expanded(
-                      child: ElevatedButton(
-                        onPressed: () => newCalcController.calculate(),
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStatePropertyAll(theme.primaryColor),
-                        ),
-                        child: const Text(
-                          'Calcular',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 40,
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: ElevatedButton(
+                          onPressed: () => newCalcController.calculate(),
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStatePropertyAll(theme.primaryColor),
+                          ),
+                          child: const Text(
+                            'Calcular',
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                   const SizedBox(height: 20),
                 ],

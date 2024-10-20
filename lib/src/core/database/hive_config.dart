@@ -1,10 +1,11 @@
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'adapters/calc_adapter.dart';
 import 'adapters/historic_adapter.dart';
 
 class HiveConfig {
-  static Future<void> load() async {
+  static Future<void> init() async {
     // Get documents directory directory
     final appDocumentDirectory = await getApplicationDocumentsDirectory();
 
@@ -18,6 +19,9 @@ class HiveConfig {
   static void _registerAdapters() {
     if (!Hive.isAdapterRegistered(HistoricAdapter().typeId)) {
       Hive.registerAdapter(HistoricAdapter());
+    }
+    if (!Hive.isAdapterRegistered(CalcAdapter().typeId)) {
+      Hive.registerAdapter(CalcAdapter());
     }
   }
 }
