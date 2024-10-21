@@ -33,8 +33,5 @@ basta ir no arquivo em lib/main.dart e clicar em run
 ### Para acessar o historico basta abrir o drawer lateral e clicar em historico
 ![result](/assets/doc/image/Screenshot_1729446757.png)
 
-### Para acessar o historico basta abrir o drawer lateral e clicar em historico
-![result](/assets/doc/image/Screenshot_1729446757.png)
-
 ### Na tela de historico mostra o ultimo resultado feito podendo ver o detalhes ou exclui-lo
 ![result](/assets/doc/image/Screenshot_1729446767.png)
